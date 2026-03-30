@@ -1,0 +1,106 @@
+[
+  {
+    "messageId": "11111111-1111-4111-8111-111111111101",
+    "ingestedAt": "2026-03-30T16:10:18.110Z",
+    "source": "Email",
+    "rawMessage": "Hi, I tried logging in this morning and keep getting a 403 error. My account is arcvault.io/user/jsmith. This started after your update last Tuesday.",
+    "category": "Bug Report",
+    "priority": "High",
+    "confidence": 95,
+    "coreIssueSentence": "User is unable to log in and receives a 403 error after a recent update.",
+    "identifiers": [
+      { "type": "http_status_code", "value": "403" },
+      { "type": "account_url", "value": "arcvault.io/user/jsmith" },
+      { "type": "time_reference", "value": "last Tuesday" }
+    ],
+    "urgencySignal": "single user login failure with error after update",
+    "llmEscalationSuggested": false,
+    "humanReadableSummary": "The user cannot log in to their account (arcvault.io/user/jsmith) and consistently receives a 403 error, which began after the system update last Tuesday. This appears to be a post-deployment authentication issue impacting their access. Please investigate the login error and check for account or permission changes related to the recent update.",
+    "routedTeamQueue": "Engineering",
+    "destinationQueue": "Engineering",
+    "requiresHumanReview": false,
+    "escalationReasons": []
+  },
+  {
+    "messageId": "11111111-1111-4111-8111-111111111102",
+    "ingestedAt": "2026-03-30T16:10:22.097Z",
+    "source": "Web Form",
+    "rawMessage": "We'd love to see a bulk export feature for our audit logs. We're a compliance-heavy org and this would save us hours every month.",
+    "category": "Feature Request",
+    "priority": "Medium",
+    "confidence": 95,
+    "coreIssueSentence": "The customer is requesting a bulk export function for audit logs to streamline compliance workflows.",
+    "identifiers": [],
+    "urgencySignal": "compliance process improvement",
+    "llmEscalationSuggested": false,
+    "humanReadableSummary": "The customer would like a bulk export feature for audit logs, citing the need to streamline compliance-related tasks. No specific error or order information was provided, and this is a feature suggestion rather than an issue with current operations. Next steps could include capturing specific export requirements or notifying product management about the request.",
+    "routedTeamQueue": "Product",
+    "destinationQueue": "Product",
+    "requiresHumanReview": false,
+    "escalationReasons": []
+  },
+  {
+    "messageId": "11111111-1111-4111-8111-111111111103",
+    "ingestedAt": "2026-03-30T16:10:25.253Z",
+    "source": "Support Portal",
+    "rawMessage": "Invoice #8821 shows a charge of $1,240 but our contract rate is $980/month. Can someone look into this?",
+    "category": "Billing Issue",
+    "priority": "High",
+    "confidence": 95,
+    "coreIssueSentence": "The customer is reporting an overcharge on invoice #8821 compared to the contracted rate.",
+    "identifiers": [
+      { "type": "invoice_number", "value": "8821" },
+      { "type": "dollar_amount", "value": "$1,240" },
+      { "type": "contract_rate", "value": "$980/month" }
+    ],
+    "urgencySignal": "billing discrepancy vs contract",
+    "llmEscalationSuggested": false,
+    "humanReadableSummary": "The customer is disputing an invoice charge, noting that invoice #8821 lists a charge of $1,240 while their contract rate should be $980 per month. Please verify the invoiced amount against their contract and clarify or correct the discrepancy as needed.",
+    "routedTeamQueue": "Billing",
+    "destinationQueue": "Billing",
+    "requiresHumanReview": false,
+    "escalationReasons": []
+  },
+  {
+    "messageId": "11111111-1111-4111-8111-111111111104",
+    "ingestedAt": "2026-03-30T16:10:27.978Z",
+    "source": "Email",
+    "rawMessage": "I'm not sure if this is the right place to ask, but is there a way to set up SSO with Okta? We're evaluating switching our auth provider.",
+    "category": "Technical Question",
+    "priority": "Medium",
+    "confidence": 95,
+    "coreIssueSentence": "The customer is asking if it is possible to set up SSO using Okta with ArcVault.",
+    "identifiers": [
+      { "type": "auth_provider", "value": "Okta" },
+      { "type": "feature", "value": "SSO" }
+    ],
+    "urgencySignal": "evaluation of switching authentication provider",
+    "llmEscalationSuggested": false,
+    "humanReadableSummary": "The customer is inquiring whether ArcVault supports SSO integration with Okta, as they are considering changing their authentication provider. No critical incident or error is reported, but a prompt and clear answer may influence their evaluation. Provide guidance or documentation on SSO setup with Okta.",
+    "routedTeamQueue": "IT_Security",
+    "destinationQueue": "IT_Security",
+    "requiresHumanReview": false,
+    "escalationReasons": []
+  },
+  {
+    "messageId": "11111111-1111-4111-8111-111111111105",
+    "ingestedAt": "2026-03-30T16:10:30.888Z",
+    "source": "Web Form",
+    "rawMessage": "Your dashboard stopped loading for us around 2pm EST. Checked our end — it's definitely on yours. Multiple users affected.",
+    "category": "Incident/Outage",
+    "priority": "High",
+    "confidence": 95,
+    "coreIssueSentence": "The customer reports that their dashboard stopped loading for multiple users around 2pm EST and believes the issue is on ArcVault's side.",
+    "identifiers": [
+      { "type": "product_area", "value": "dashboard" },
+      { "type": "timestamp", "value": "2pm EST" }
+    ],
+    "urgencySignal": "multiple users affected, core dashboard inaccessible",
+    "llmEscalationSuggested": false,
+    "humanReadableSummary": "The customer is experiencing a complete loss of access to their dashboard since about 2pm EST, impacting multiple users on their account. They have ruled out local issues and believe the fault lies with ArcVault. Please investigate the dashboard service immediately and inform the customer of the investigation status.",
+    "routedTeamQueue": "Engineering",
+    "destinationQueue": "HumanReview",
+    "requiresHumanReview": true,
+    "escalationReasons": ["multi_user_impact"]
+  }
+]
