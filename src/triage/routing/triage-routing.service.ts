@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { randomUUID } from 'crypto';
 import {
-  CONFIDENCE_ESCALATION_THRESHOLD,
+  CONFIDENCE_THRESHOLD_BY_CATEGORY,
   type BusinessQueue,
   type DestinationQueue,
   type EscalationReason,
@@ -59,7 +59,7 @@ export class TriageRoutingService {
    * suggestion into a single list of reasons. Any non-empty list triggers HITL.
    *
    * Rules:
-   *   - confidence < CONFIDENCE_ESCALATION_THRESHOLD (70)
+   *   - confidence < CONFIDENCE_THRESHOLD_BY_CATEGORY[category]
    *   - LLM flagged llmEscalationSuggested
    *   - raw message contains outage/down-for-all-users keywords
    *   - multiple/several users mentioned
@@ -76,7 +76,9 @@ export class TriageRoutingService {
       }
     };
 
-    if (partial.confidence < CONFIDENCE_ESCALATION_THRESHOLD) {
+    const confidenceThreshold =
+      CONFIDENCE_THRESHOLD_BY_CATEGORY[partial.category];
+    if (partial.confidence < confidenceThreshold) {
       add('low_confidence');
     }
     if (partial.llmEscalationSuggested) {

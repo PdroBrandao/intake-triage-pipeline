@@ -41,5 +41,16 @@ export type BusinessQueue = (typeof BUSINESS_QUEUES)[number];
 export type DestinationQueue = (typeof DESTINATION_QUEUES)[number];
 export type EscalationReason = (typeof ESCALATION_REASONS)[number];
 
-/** Confidence below this threshold triggers automatic human escalation. */
-export const CONFIDENCE_ESCALATION_THRESHOLD = 70;
+/**
+ * Per-category confidence thresholds for the escalation gate.
+ * Categories with higher operational risk require higher confidence before
+ * routing to a business queue — lower-risk categories tolerate more ambiguity.
+ */
+export const CONFIDENCE_THRESHOLD_BY_CATEGORY: Record<TicketCategory, number> =
+  {
+    'Incident/Outage': 80,
+    'Billing Issue': 75,
+    'Bug Report': 70,
+    'Technical Question': 60,
+    'Feature Request': 55,
+  };
